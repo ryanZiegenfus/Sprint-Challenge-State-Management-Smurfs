@@ -6,6 +6,7 @@ import { SmurfContext } from '../contexts/SmurfContext'
 import SmurfInput from './SmurfInput'
 import SmurfList from './SmurfList';
 
+
 function App() {
 
   const [smurf,setSmurf] = useState([]);

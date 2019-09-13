@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { SmurfContext } from '../contexts/SmurfContext';
+import { Card } from 'semantic-ui-react';
 
 const SmurfList = () => {
 
@@ -9,10 +10,16 @@ const SmurfList = () => {
 	return (
 		<div className="shopping-cart">
 			{smurf.map(item => (
-				<div key={item.id}> {`${item.name} , ${item.age}, ${item.height}`}  </div>
+                <Card
+                key={item.id}
+                header={item.name}
+                meta={item.age}
+                description={item.height}
+                />
 			))}
 		</div>
 	);
 };
 
 export default SmurfList;
+
