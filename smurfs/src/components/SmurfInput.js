@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import './App.css';
 import axios from 'axios';
+import { SmurfContext } from '../contexts/SmurfContext';
 
 
 export default function SmurfInput (props) {
-
+    const {addSmurf} = useContext(SmurfContext)
     const [stateText, setStateText] = useState('');
 
     const handleChange = (event) => {
@@ -17,7 +18,8 @@ export default function SmurfInput (props) {
     // }, [stateText])
 
     const submitChange = (event) => {
-        //event.preventDefault();
+        event.preventDefault();
+        addSmurf(stateText);
         axios.post('http://localhost:3333/smurfs', stateText)
         .then(response => console.log(response))
 
